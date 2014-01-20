@@ -1,0 +1,23 @@
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender"> 
+    <file>/tmp/loggings/bar.log</file>
+    <rollingPolicy class="com.scarytom.logmaker.LogRollingPolicy"/>
+    <encoder>
+      <pattern>%d %-5level [%thread] %logger{0}: %msg%n</pattern>
+      <immediateFlush>true</immediateFlush>
+    </encoder> 
+  </appender>
+
+  <root level="debug">
+    <appender-ref ref="FILE" />
+  </root>
+
+</configuration>
